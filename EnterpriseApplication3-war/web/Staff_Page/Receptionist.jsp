@@ -1,18 +1,19 @@
 <%-- 
-    Document   : Staff
-    Created on : Mar 6, 2024, 11:51:37 PM
+    Document   : Receptionist
+    Created on : Mar 7, 2024, 1:33:25 AM
     Author     : ADMIN
 --%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div class="container">
     <div class="my-3">
         <div class="row justify-content-between" >
             <div class="col">
-                <h2>Staff List</h2>   
+                <h2>Receptionist List</h2>   
             </div>
             <div class="col-2 text-end">
-                <button type="button" data-bs-toggle="modal" data-bs-target="#addStaffModel" class="btn btn-success add-staff-button" data-action="Add Staff">Add Staff</button> 
+                <button type="button" data-bs-toggle="modal" data-bs-target="#addReceptionistModel" class="btn btn-success add-Receptionist-button" data-action="Add Receptionist">Add Receptionist</button> 
 
             </div>
 
@@ -36,11 +37,11 @@
                 <tr>
                     <td>Mark</td>
                     <td>Approved Or Rejected OR Pending</td>
-                    <td style="width: 350px"> 
-                        <button type="button" data-bs-toggle="modal" data-bs-target="#editStaffModel" class="btn btn-primary edit-staff-button" data-action="Edit Staff">Edit Staff</button>
-                        <button type="button" data-bs-toggle="modal" data-bs-target="#approveStaffModel" class="btn btn-success approve-staff-button" >Approve</button> 
-                        <button type="button" data-bs-toggle="modal" data-bs-target="#approveStaffModel" class="btn btn-danger reject-staff-button" >Reject</button> 
-                        <button class="btn delete-staff-button" type="button" data-bs-toggle="modal" data-bs-target="#deleteStaffModel" ><i class="fas fa-trash-alt"></i> </button>
+                    <td style="width: 400px"> 
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#editReceptionistModel" class="btn btn-primary edit-Receptionist-button" data-action="Edit Receptionist">Edit Receptionist</button>
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#approveReceptionistModel" class="btn btn-success approve-Receptionist-button" >Approve</button> 
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#approveReceptionistModel" class="btn btn-danger reject-Receptionist-button" >Reject</button> 
+                        <button class="btn delete-Receptionist-button" type="button" data-bs-toggle="modal" data-bs-target="#deleteReceptionistModel" ><i class="fas fa-trash-alt"></i> </button>
                     </td>
                 </tr>
 
@@ -50,13 +51,13 @@
     </div>
 
 </div>
-<!-- Add Staff Model -->
-<div class="modal fade" id="addStaffModel" tabindex="-1" aria-labelledby="actionModel" aria-hidden="true">
+<!-- Add Receptionist Model -->
+<div class="modal fade" id="addReceptionistModel" tabindex="-1" aria-labelledby="actionModel" aria-hidden="true">
     <div class="modal-dialog">
-        <form action="action"  method="POST" id="addStaffForm">
+        <form action="action"  method="POST" id="addReceptionistForm">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staff-add-title">Add Staff</h5>
+                    <h5 class="modal-title" id="Receptionist-add-title">Add Receptionist</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -77,13 +78,13 @@
     </div>
 </div>
 
-<!-- Edit Staff Model -->
-<div class="modal fade" id="editStaffModel" tabindex="-1" aria-labelledby="actionModel" aria-hidden="true">
+<!-- Edit Receptionist Model -->
+<div class="modal fade" id="editReceptionistModel" tabindex="-1" aria-labelledby="actionModel" aria-hidden="true">
     <div class="modal-dialog">
-        <form action="action"  method="POST" id="editStaffForm">
+        <form action="action"  method="POST" id="editReceptionistForm">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staff-add-title">Edit Staff</h5>
+                    <h5 class="modal-title" id="Receptionist-add-title">Edit Receptionist</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -92,7 +93,7 @@
                         <input required type="text" class="form-control" id="exampleFormControlInput1" name="name" placeholder="Please Key in Your Name">
                     </div>
                     <input type="text" class="form-control" id="actionTypeInput" name="type" placeholder="Type" hidden value="edit">
-                    <input type="text" class="form-control" id="editStaffId" name="id"  hidden >
+                    <input type="text" class="form-control" id="editReceptionistId" name="id"  hidden >
 
 
                 </div>
@@ -106,21 +107,21 @@
     </div>
 </div>
 
-<!-- Delete Staff Model -->
-<div class="modal fade" id="deleteStaffModel" tabindex="-1" aria-labelledby="deleteModel" aria-hidden="true">
+<!-- Delete Receptionist Model -->
+<div class="modal fade" id="deleteReceptionistModel" tabindex="-1" aria-labelledby="deleteModel" aria-hidden="true">
     <div class="modal-dialog">
-        <form action="action"  method="POST" id="deleteStaffForm">
+        <form action="action"  method="POST" id="deleteReceptionistForm">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" >Delete Staff</h5>
+                    <h5 class="modal-title" >Delete Receptionist</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
                         <div class="row">
-                            <p id="deleteStaffTitle">Do you want to delete this Staff?</p>
+                            <p id="deleteReceptionistTitle">Do you want to delete this Receptionist?</p>
                         </div>
-                        <input type="text" class="form-control" id="deleteStaffId" name="id"  hidden >
+                        <input type="text" class="form-control" id="deleteReceptionistId" name="id"  hidden >
                         <input type="text" class="form-control" id="actionTypeInput" name="type" placeholder="Type" hidden value="delete">
                     </div>
                 </div>
@@ -135,26 +136,26 @@
 </div>
 
 <!-- Modal Approve/Reject -->
-<div class="modal fade" id="approveStaffModel" tabindex="-1" aria-labelledby="approveRejectModel" aria-hidden="true">
+<div class="modal fade" id="approveReceptionistModel" tabindex="-1" aria-labelledby="approveRejectModel" aria-hidden="true">
     <div class="modal-dialog">
-        <form action="action"  method="POST" id="approveStaffForm">
+        <form action="action"  method="POST" id="approveReceptionistForm">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="approveStaffModelTitle">Approve</h5>
+                    <h5 class="modal-title" id="approveReceptionistTitle">Approve</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
                         <div class="row">
-                            <p id="approveStaffTitle">Do you want to Approve this record?</p>
+                            <p id="approveReceptionistText">Do you want to Approve this record?</p>
                         </div>
-                        <input type="text" class="form-control" id="approvedId" name="id"  hidden >
-                        <input type="text" class="form-control" id="approveActionTypeInput" name="type" placeholder="Type" hidden >
+                        <input type="text" class="form-control" id="approveReceptionistId" name="id"  hidden >
+                        <input type="text" class="form-control" id="approveActionTypeInput" name="type" placeholder="Type" hidden value="approve">
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary" id="approveStaffBtn">Approve</button>
+                    <button type="submit" id="approveReceptionistBtn" class="btn btn-primary">Approve</button>
                 </div>
             </div>
         </form>
@@ -162,78 +163,79 @@
     </div>
 </div>
 <script>
-    $('#addStaffModel').on('hidden.bs.modal', function (e) {
+    $('#addReceptionistModel').on('hidden.bs.modal', function (e) {
         console.log('Modal has been dismissed.');
-        $(this).find('#addStaffForm').trigger('reset');
+        $(this).find('#addReceptionistForm').trigger('reset');
     });
-    $('#editStaffModel').on('hidden.bs.modal', function (e) {
+    $('#editReceptionistModel').on('hidden.bs.modal', function (e) {
         console.log('Modal has been dismissed.');
-        $(this).find('#editStaffForm').trigger('reset');
+        $(this).find('#editReceptionistForm').trigger('reset');
     });
-    $('#deleteStaffModel').on('hidden.bs.modal', function (e) {
+    $('#deleteReceptionistModel').on('hidden.bs.modal', function (e) {
         console.log('Modal has been dismissed.');
-        $(this).find('#deleteStaffForm').trigger('reset');
+        $(this).find('#deleteReceptionistForm').trigger('reset');
     });
-    $('#approveStaffModel').on('hidden.bs.modal', function (e) {
+    $('#approveReceptionistModel').on('hidden.bs.modal', function (e) {
         console.log('Modal has been dismissed.');
-        $(this).find('#approveStaffForm').trigger('reset');
+        $(this).find('#approveReceptionistForm').trigger('reset');
     });
-    $('.add-staff-button').click(function () {
+    $('.add-Receptionist-button').click(function () {
         var action = $(this).attr('data-action');
         console.log('action', action);
         // Use the action to change the modal's title
-        $('#staff-add-title').text(action);
+        $('#Receptionist-add-title').text(action);
         var input = $('<input>').attr({
             type: 'text',
             name: 'role',
-            value: 'managing_staff',
+            value: 'receptionist',
             hidden: true
         });
 
         // Append it to the container
-        $('#addStaffForm').append(input);
+        $('#addReceptionistForm').append(input);
     });
-    $('.approve-staff-button').click(function () {
+    $('.approve-Receptionist-button').click(function () {
         //Replace with real id
         let id = '123123';
-        $('#approvedId').val(id);
+        $('#approveReceptionistId').val(id);
+
+        $('#approveReceptionistTitle').text('Approve Receptionist');
+
+        $('#approveReceptionistText').text('Do you want to Approve this Receptionist?');
+        $('#approveReceptionistBtn').text('Approve');
         $('#approveActionTypeInput').val('approve');
-        $('#approveStaffModelTitle').text('Approve Staff');
-
-        $('#approveStaffTitle').text('Do you want to Approve this staff?');
-        $('#approveStaffBtn').text('Approve');
-
         // Finally, show the modal
-        $('#approveStaffModel').modal('show');
+        $('#approveReceptionistModel').modal('show');
     });
-    $('.reject-staff-button').click(function () {
+    $('.reject-Receptionist-button').click(function () {
         //Replace with real id
         let id = '123123';
-        $('#approvedId').val(id);
-        $('#approveStaffModelTitle').text('Reject Staff');
+        $('#approveReceptionistId').val(id);
+        $('#approveReceptionistTitle').text('Reject Receptionist');
 
-        $('#approveStaffTitle').text('Do you want to Reject this staff?');
+        $('#approveReceptionistText').text('Do you want to Reject this Receptionist?');
+        $('#approveReceptionistBtn').text('Reject');
+
         $('#approveActionTypeInput').val('reject');
-        $('#approveStaffBtn').text('Reject');
         // Finally, show the modal
-        $('#approveStaffModel').modal('show');
+        $('#approveReceptionistModel').modal('show');
     });
 
-    $('.delete-staff-button').click(function () {
+    $('.delete-Receptionist-button').click(function () {
         //Replace with real id
         let id = '123123';
-        $('#deleteStaffId').val(id);
-        $('#deleteStaffTitle').text('Do you want to delete this Staff?');
+        $('#deleteReceptionistId').val(id);
+        $('#deleteReceptionistTitle').text('Do you want to delete this Receptionist?');
         // Finally, show the modal
-        $('#deleteStaffModel').modal('show');
+        $('#deleteReceptionistModel').modal('show');
     });
 
-    $('.edit-staff-button').click(function () {
+    $('.edit-Receptionist-button').click(function () {
         //Replace with real id
         let id = '123123';
-        $('#editStaffId').val(id);
+        $('#editReceptionistId').val(id);
         // Finally, show the modal
-        $('#editStaffModel').modal('show');
+        $('#editReceptionistModel').modal('show');
     });
 
 //Search
@@ -244,7 +246,7 @@
 
 
 //    Form Submit
-    $('#addStaffForm').submit(function (event) {
+    $('#addReceptionistForm').submit(function (event) {
         // Prevent the default form submission
         event.preventDefault();
         var formDataObj = {};
@@ -257,7 +259,7 @@
         console.log('Data', formDataObj);
     });
 
-    $('#editStaffForm').submit(function (event) {
+    $('#editReceptionistForm').submit(function (event) {
         // Prevent the default form submission
         event.preventDefault();
         var formDataObj = {};
@@ -270,7 +272,7 @@
         console.log('Data', formDataObj);
     });
 
-    $('#deleteStaffForm').submit(function (event) {
+    $('#deleteReceptionistForm').submit(function (event) {
         console.log('Hi');
         // Prevent the default form submission
         event.preventDefault();
@@ -283,7 +285,7 @@
         });
         console.log('Data', formDataObj);
     });
-    $('#approveStaffForm').submit(function (event) {
+    $('#approveReceptionistForm').submit(function (event) {
         console.log('Hi');
         // Prevent the default form submission
         event.preventDefault();

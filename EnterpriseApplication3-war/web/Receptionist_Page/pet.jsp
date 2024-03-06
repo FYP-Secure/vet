@@ -1,19 +1,18 @@
 <%-- 
-    Document   : Vets
-    Created on : Mar 7, 2024, 12:55:16 AM
+    Document   : pet
+    Created on : Mar 7, 2024, 3:28:09 AM
     Author     : ADMIN
 --%>
-
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div class="container">
     <div class="my-3">
         <div class="row justify-content-between" >
             <div class="col">
-                <h2>Vets List</h2>   
+                <h2>Pet List</h2>   
             </div>
             <div class="col-2 text-end">
-                <button type="button" data-bs-toggle="modal" data-bs-target="#addVetsModel" class="btn btn-success add-Vets-button" data-action="Add Vets">Add Vets</button> 
+                <button type="button" data-bs-toggle="modal" data-bs-target="#addPetModel" class="btn btn-success add-Pet-button" data-action="Add Pet">Add Pet</button> 
 
             </div>
 
@@ -27,19 +26,21 @@
         <table class="table table-striped">
             <thead>
                 <tr>
+                    <th scope="col">Owner Name</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Expertise</th>
+
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>Mark</td>
-                    <td>A,B,C</td>
-                    <td style="width: 250px"> 
-                        <button type="button" data-bs-toggle="modal" data-bs-target="#editVetsModel" class="btn btn-primary edit-Vets-button" data-action="Edit Vets">Edit Vets</button>
+                    <th scope="col">Name</th>
 
-                        <button class="btn delete-Vets-button" type="button" data-bs-toggle="modal" data-bs-target="#deleteVetsModel" ><i class="fas fa-trash-alt"></i> </button>
+                    <td style="width: 250px"> 
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#editPetModel" class="btn btn-primary edit-Pet-button" data-action="Edit Pet">Edit Pet</button>
+
+                        <button class="btn delete-Pet-button" type="button" data-bs-toggle="modal" data-bs-target="#deletePetModel" ><i class="fas fa-trash-alt"></i> </button>
                     </td>
                 </tr>
 
@@ -49,29 +50,30 @@
     </div>
 
 </div>
-<!-- Add Vets Model -->
-<div class="modal fade" id="addVetsModel" tabindex="-1" aria-labelledby="actionModel" aria-hidden="true">
+<!-- Add Pet Model -->
+<div class="modal fade" id="addPetModel" tabindex="-1" aria-labelledby="actionModel" aria-hidden="true">
     <div class="modal-dialog">
-        <form action="action"  method="POST" id="addVetsForm">
+        <form action="action"  method="POST" id="addPetForm">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="Vets-add-title">Add Vets</h5>
+                    <h5 class="modal-title" id="Pet-add-title">Add Pet</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Name</label>
-                        <input required type="text" class="form-control" id="exampleFormControlInput1" name="name" placeholder="Please Key in Your Name">
-                    </div>
-                    <div class="mb-3">
-                        <label for="ExpertiseInput" class="form-label">Expertise</label>
-                        <select required id='ExpertiseInput' name='expertise' class="form-select" aria-label="Default select example" multiple>
-                            <option selected  disabled>Please Select Your Expertise</option>
-                            <option value="1">One</option>
+                        <label for="ExpertiseInput" class="form-label">Owner Name</label>
+                        <select required id='customerName' name='owner_id' class="form-select" aria-label="Owner" >
+                            <option selected disabled>Please Select Pet</option>
+                            <option value="1">Mark</option>
                             <option value="2">Two</option>
                             <option value="3">Three</option>
                         </select>
                     </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Name</label>
+                        <input required type="text" class="form-control" id="exampleFormControlInput1" name="name" placeholder="Please Key in Your Name">
+                    </div>
+
                     <input  type="text" class="form-control" id="actionTypeInput" name="type" placeholder="Type" hidden value="add">
                     <div id="add-error-message" style="color: red;"></div>
 
@@ -85,32 +87,30 @@
     </div>
 </div>
 
-<!-- Edit Vets Model -->
-<div class="modal fade" id="editVetsModel" tabindex="-1" aria-labelledby="actionModel" aria-hidden="true">
+<!-- Edit Pet Model -->
+<div class="modal fade" id="editPetModel" tabindex="-1" aria-labelledby="actionModel" aria-hidden="true">
     <div class="modal-dialog">
-        <form action="action"  method="POST" id="editVetsForm">
+        <form action="action"  method="POST" id="editPetForm">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="Vets-add-title">Edit Vets</h5>
+                    <h5 class="modal-title" id="Pet-add-title">Edit Pet</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    <select required id='customerName' name='owner_id' class="form-select" aria-label="Owner" >
+                        <option selected disabled>Please Select Pet</option>
+                        <option value="1">Mark</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Name</label>
                         <input  required type="text" class="form-control" id="exampleFormControlInput1" name="name" placeholder="Please Key in Your Name">
                     </div>
-                    <div class="mb-3">
-                        <label for="ExpertiseInput" class="form-label">Expertise</label>
-                        <select required id='ExpertiseInput' name='expertise' class="form-select" aria-label="Default select example" multiple>
-                            <option selected disabled>Please Select Your Expertise</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                    </div>
+
 
                     <input type="text" class="form-control" id="actionTypeInput" name="type" placeholder="Type" hidden value="edit">
-                    <input type="text" class="form-control" id="editVetsId" name="id"  hidden >
+                    <input type="text" class="form-control" id="editPetId" name="id"  hidden >
                     <div id="edit-error-message" style="color: red;"></div>
 
                 </div>
@@ -124,21 +124,21 @@
     </div>
 </div>
 
-<!-- Delete Vets Model -->
-<div class="modal fade" id="deleteVetsModel" tabindex="-1" aria-labelledby="deleteModel" aria-hidden="true">
+<!-- Delete Pet Model -->
+<div class="modal fade" id="deletePetModel" tabindex="-1" aria-labelledby="deleteModel" aria-hidden="true">
     <div class="modal-dialog">
-        <form action="action"  method="POST" id="deleteVetsForm">
+        <form action="action"  method="POST" id="deletePetForm">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" >Delete Vets</h5>
+                    <h5 class="modal-title" >Delete Pet</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
                         <div class="row">
-                            <p id="deleteVetsTitle">Do you want to delete this Vets?</p>
+                            <p id="deletePetTitle">Do you want to delete this Pet?</p>
                         </div>
-                        <input type="text" class="form-control" id="deleteVetsId" name="id"  hidden >
+                        <input type="text" class="form-control" id="deletePetId" name="id"  hidden >
                         <input type="text" class="form-control" id="actionTypeInput" name="actionType" placeholder="Type" hidden value="delete">
                     </div>
                 </div>
@@ -180,76 +180,66 @@
     </div>
 </div>
 <script>
-    $('#addVetsModel').on('hidden.bs.modal', function (e) {
+    $('#addPetModel').on('hidden.bs.modal', function (e) {
         console.log('Modal has been dismissed.');
-        $(this).find('#addVetsForm').trigger('reset');
+        $(this).find('#addPetForm').trigger('reset');
     });
-    $('#editVetsModel').on('hidden.bs.modal', function (e) {
+    $('#editPetModel').on('hidden.bs.modal', function (e) {
         console.log('Modal has been dismissed.');
-        $(this).find('#editVetsForm').trigger('reset');
+        $(this).find('#editPetForm').trigger('reset');
     });
-    $('#deleteVetsModel').on('hidden.bs.modal', function (e) {
+    $('#deletePetModel').on('hidden.bs.modal', function (e) {
         console.log('Modal has been dismissed.');
-        $(this).find('#deleteVetsForm').trigger('reset');
+        $(this).find('#deletevForm').trigger('reset');
     });
     $('#approveModel').on('hidden.bs.modal', function (e) {
         console.log('Modal has been dismissed.');
         $(this).find('#approveForm').trigger('reset');
     });
-    $('.add-Vets-button').click(function () {
+    $('.add-Pet-button').click(function () {
         var action = $(this).attr('data-action');
         console.log('action', action);
         // Use the action to change the modal's title
-        $('#Vets-add-title').text(action);
-        var input = $('<input>').attr({
-            type: 'text',
-            name: 'role',
-            value: 'vet',
-            hidden: true
-        });
-
-        // Append it to the container
-        $('#addVetsForm').append(input);
-        $('#addVetsModel #actionTypeInput').val(action === 'Edit Vets' ? "edit" : "add");
+        $('#Pet-add-title').text(action);
     });
-    $('.approve-Vets-button').click(function () {
+    $('.approve-Pet-button').click(function () {
         //Replace with real id
         let id = '123123';
         $('#approvedId').text(id);
 
-        $('#approveModelTitle').text('Approve Vets');
+        $('#approveModelTitle').text('Approve Pet');
 
-        $('#approveTitle').text('Do you want to Approve this Vets?');
+        $('#approveTitle').text('Do you want to Approve this Pet?');
         // Finally, show the modal
         $('#approveModel').modal('show');
     });
-    $('.reject-Vets-button').click(function () {
+    $('.reject-Pet-button').click(function () {
         //Replace with real id
         let id = '123123';
         $('#approvedId').text(id);
-        $('#approveModelTitle').text('Reject Vets');
+        $('#approveModelTitle').text('Reject Pet');
 
-        $('#approveTitle').text('Do you want to Reject this Vets?');
+        $('#approveTitle').text('Do you want to Reject this Pet?');
         $('#actionTypeInput').val('reject');
         // Finally, show the modal
         $('#approveModel').modal('show');
     });
 
-    $('.delete-Vets-button').click(function () {
+    $('.delete-Pet-button').click(function () {
         //Replace with real id
         let id = '123123';
-        $('#deleteVetsId').val(id);
-        $('#deleteVetsTitle').text('Do you want to delete this Vets?');
+        $('#deletePetId').val(id);
+        $('#deletePetTitle').text('Do you want to delete this Pet?');
         // Finally, show the modal
-        $('#deleteVetsModel').modal('show');
+        $('#deletePetModel').modal('show');
     });
 
-    $('.edit-Vets-button').click(function () {
+    $('.edit-Pet-button').click(function () {
         //Replace with real id
         let id = '123123';
-        $('#editVetsId').val(id);
+        $('#editPetId').val(id);
         // Finally, show the modal
-        $('#editVetsModel').modal('show');
+        $('#editPetModel').modal('show');
     });
 
 //Search
@@ -260,7 +250,7 @@
 
 
 //    Form Submit
-    $('#addVetsForm').submit(function (event) {
+    $('#addPetForm').submit(function (event) {
         let isValid = true;
         $('#add-error-message').text(''); // Clear previous error message
 
@@ -293,7 +283,7 @@
         console.log('Data', formDataObj);
     });
 
-    $('#editVetsForm').submit(function (event) {
+    $('#editPetForm').submit(function (event) {
         let isValid = true;
         $('#edit-error-message').text(''); // Clear previous error message
         $(this).find('input[required] , select[required]').each(function () {
@@ -323,7 +313,7 @@
         console.log('Data', formDataObj);
     });
 
-    $('#deleteVetsForm').submit(function (event) {
+    $('#deletePetForm').submit(function (event) {
         console.log('Hi');
         // Prevent the default form submission
         event.preventDefault();
@@ -337,3 +327,4 @@
         console.log('Data', formDataObj);
     });
 </script>
+
