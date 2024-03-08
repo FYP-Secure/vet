@@ -37,7 +37,15 @@ public class Login extends HttpServlet {
             out.println("password: " + request.getParameter("password"));
             
             if ("staff".equals(request.getParameter("username"))) {
-                response.sendRedirect("AddStaff.jsp");
+                response.sendRedirect("Staff.jsp");
+            }
+            
+            if ("vet".equals(request.getParameter("username"))) {
+                response.sendRedirect("Vet.jsp");
+            }
+            
+            if ("receptionist".equals(request.getParameter("username"))) {
+                response.sendRedirect("Receptionist.jsp");
             }
         }
     }

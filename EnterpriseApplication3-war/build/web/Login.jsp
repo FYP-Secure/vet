@@ -14,16 +14,25 @@
 
     </head>
     <body>
-    <center>
-        <h2>Login</h2>
-        <form action="Login" method="POST">
-            <label for="username">Username:</label><br>
-            <input type="text" id="username" name="username"><br>
-            <label for="password">Password:</label><br>
-            <input type="text" id="password" name="password"><br><br>
-            <button type="submit" class="btn btn-primary">Login Staff</button>
-        </form> 
-    </center>
-    <%@ include file="parts/footer.jsp" %>
-</body>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <h2 class="text-center">Login</h2>
+                    <form action="Login" method="POST">
+                        <div class="form-group">
+                          <label for="username">Username</label>
+                          <input type="username" class="form-control" id="username" aria-describedby="username" placeholder="Enter username">
+                          <small id="username" class="form-text text-muted">We'll never share your username with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                          <label for="password">Password</label>
+                          <input type="password" class="form-control" id="password" placeholder="Password">
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
